@@ -1,0 +1,35 @@
+{
+  "name": "ao_documentation_maker",
+  "version": "1.0.0",
+  "description": "Just starting point....will see yet what will become out of it.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install_ao": "bash ao_builder/install.sh",
+    "build_ao": "bash ao_builder/build.sh",
+    "build_ao_dev": "bash ao_builder/build.sh dev",
+    "dev_ao": "start node front.srv.js && nodemon --exec npm run build_ao_dev --ignore ./PUBLIC",
+    "ao": "npm run build_ao && node front.srv.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MyUserNameIsMyUserName/A-O_documentation_maker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MyUserNameIsMyUserName/A-O_documentation_maker/issues"
+  },
+  "homepage": "https://github.com/MyUserNameIsMyUserName/A-O_documentation_maker#readme",
+  "dependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-remove-comments": "^2.0.0",
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "livereload": "^0.9.1",
+    "webpack": "^5.16.0"
+  }
+}
