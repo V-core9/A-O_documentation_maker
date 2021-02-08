@@ -42,12 +42,11 @@ function startLoading(){
 }
 
 
-(function () {
-    //console.log("App STARTING file..>.>.>.>")
+window.onload = function () {
 
     if (true_origin !== window.location.origin) {
         console.log("Origin not cool. Mkey? ");
-        window.location.replace(tru_org);
+        window.location.replace(true_origin);
     }
 
     loadScript("/assets/scripts/ao_modal.js", function () { /* testModalFunc(); */ });
@@ -56,7 +55,7 @@ function startLoading(){
     loadStyle("/assets/styles/app.css");
     loadStyle("/assets/styles/modal.css");
 
-})()
+};
 
 
 //▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
