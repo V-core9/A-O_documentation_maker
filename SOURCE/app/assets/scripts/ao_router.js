@@ -26,7 +26,7 @@ var routes = [
 ];
 
 function show404page() {
-    alert('ERROR_404 page not found!')
+    alert("ERROR_404 page not found!")
 }
 
 function findCurrentRoute() {
