@@ -1,4 +1,4 @@
-var currentLocation = window.location.pathname;
+var currentLocation = window.location.pathname.replace("A-O_documentation_maker/", "");
 
 //DEMO ROUTES
 

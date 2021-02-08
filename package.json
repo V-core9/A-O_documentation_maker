@@ -10,6 +10,7 @@
     "build_ao_dev": "bash ao_builder/build.sh dev",
     "dev_ao": "start node front.srv.js && nodemon --exec npm run build_ao_dev --ignore ./PUBLIC",
     "tunnel_ao": "npm run ao && start lt --port 8080",
+    "git_docs": "npm run build_ao && rm -r ./docs && cp -ar ./PUBLIC ./docs",
     "ao": "npm run build_ao && start node front.srv.js"
   },
   "repository": {
