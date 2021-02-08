@@ -1,5 +1,30 @@
 var currentLocation = window.location.pathname;
 
+//DEMO ROUTES
+
+var routes = [
+    {
+        route: "/",
+        routeAliases: ["/index", "/index.html"],
+        page() {
+            loadScript("/pages/home.js");
+        }
+    },
+    {
+        route: "/documentation",
+        routeAliases: ["/docs", "/app_docs"],
+        page() {
+            loadScript("/pages/docs.js");
+        }
+    },
+    {
+        route: "/contact",
+        page() {
+            loadScript("/pages/contact.js");
+        }
+    }
+];
+
 function show404page() {
     alert('ERROR_404 page not found!')
 }
@@ -29,27 +54,3 @@ function findCurrentRoute() {
     return pageFound;
 }
 
-//DEMO ROUTES
-
-var routes = [
-    {
-        route: "/",
-        routeAliases: ["/index", "/index.html"],
-        page: function () {
-            loadScript("/pages/home.js");
-        }
-    },
-    {
-        route: "/documentation",
-        routeAliases: ["/docs", "/app_docs"],
-        page: function () {
-            loadScript("/pages/docs.js");
-        }
-    },
-    {
-        route: "/contact",
-        page: function () {
-            loadScript("/pages/contact.js");
-        }
-    }
-]
