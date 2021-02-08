@@ -111,6 +111,16 @@
             flex-direction: column;
             justify-content: center;
         }
+
+        div#loader_progress_bar {
+            display: flex;
+            position: absolute;
+            top: 0;
+            width: 0%;
+            height: 5px;
+            background: #ab0000;
+            transition: 0.25s ease all;
+        }
     </style>
     <script>
         var tru_org = "http://localhost:8080"
@@ -119,6 +129,7 @@
 
 <body>
     <div id="loader">
+        <div id="loader_progress_bar"></div>
         <img class="logo_img" src="/assets/images/icons/android-icon-192x192.png" alt="logo"
             srcset="/assets/images/icons/android-icon-192x192.png" width="192" height="192">
         <div class="bt-spinner"></div>
@@ -126,7 +137,13 @@
     <div id="app">
 
     </div>
-    <script src="/app.js"></script>
+
+    <div id='app_styles_container'>
+    </div>
+
+    <div id='app_scripts_container'>
+        <script src="/app.js"></script>
+    </div>
 </body>
 
 </html>

@@ -1,0 +1,11 @@
+.ao_modal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 200px black inset;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
