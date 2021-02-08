@@ -7,7 +7,9 @@
 //║       than few days, better have something prepared.          ║ √ 23.01.2021. ║
 //╚═══════════════════════════════════════════════════════════════╩═══════════════╝
 
+const true_origin = "http://localhost:8080"
 // Some variables setup
+var ao_loader = document.getElementById("loader");
 var pageScripts = document.getElementById("app_scripts_container");
 var pageStyles = document.getElementById("app_styles_container");
 
@@ -24,22 +26,31 @@ function loadScript(url, onloadFunction) {
 }
 
 function loadStyle(url) {
-    var newStyle = document.createElement("link")
-    newStyle.setAttribute("rel", "stylesheet")
-    newStyle.setAttribute("type", "text/css")
-    newStyle.setAttribute("href", url)
+    var newStyle = document.createElement("link");
+    newStyle.setAttribute("rel", "stylesheet");
+    newStyle.setAttribute("type", "text/css");
+    newStyle.setAttribute("href", url);
     pageStyles.appendChild(newStyle);
 }
+
+function finishLoading(){
+    document.body.classList.add('loaded');
+}
+
+function startLoading(){
+    document.body.classList.remove('loaded');
+}
+
 
 (function () {
     //console.log("App STARTING file..>.>.>.>")
 
-    if (tru_org !== window.location.origin) {
-        console.log("Origin not cool. Mkey? ")
+    if (true_origin !== window.location.origin) {
+        console.log("Origin not cool. Mkey? ");
         window.location.replace(tru_org);
     }
 
-    loadScript("/assets/scripts/ao_modal.js", function () { testModal(); });
+    loadScript("/assets/scripts/ao_modal.js", function () { /* testModalFunc(); */ });
     loadScript("/assets/scripts/ao_router.js", function () { findCurrentRoute(); });
 
     loadStyle("/assets/styles/app.css");

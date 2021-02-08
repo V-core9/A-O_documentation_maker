@@ -31,15 +31,16 @@ function trowModal(data) {
 
 
 //TEST MODAL 
-
-var testModal = {
-    title: "Error [alpha_version]!",
-    text: "Do you want to continue",
-    icon: "error",
-    confirmButtonText: "Cool",
-    cancelButtonText: "Nope",
-    showCancelButton: true,
-    showCloseButton: true
+function testModalFunc(){
+    var testModal = {
+        title: "Error [alpha_version]!",
+        text: "Do you want to continue",
+        icon: "error",
+        confirmButtonText: "Cool",
+        cancelButtonText: "Nope",
+        showCancelButton: true,
+        showCloseButton: true
+    }
+    
+    trowModal(testModal);
 }
-
-trowModal(testModal);
