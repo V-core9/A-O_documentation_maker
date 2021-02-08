@@ -1,3 +1,4 @@
+#!/bin/bash
 #╔═══════════════════════════════════════════════════════════════════════════════╗
 #║ ♠ File Name: build.sh                                                         ║
 #║ ↔ Location: <: public_root :>/ Dev / sh / build.sh                            ║

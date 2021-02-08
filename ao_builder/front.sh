@@ -1,3 +1,4 @@
+#!/bin/bash
 #╔═══════════════════════════════════════════════════════════════════════════════╗
 #║ ♠ File Name: front.sh                                                         ║
 #║ ↔ Location: <: public_root :>/ Dev / sh / front.sh                            ║
@@ -7,7 +8,7 @@
 #║       than few days, better have something prepared.          ║ √ 23.01.2021. ║
 #╚═══════════════════════════════════════════════════════════════╩═══════════════╝
 
-echo $PWD
+echo "$PWD"
 read -p "A^O_DOCS_FRONT_SERVER_Process >> Press [> ENTER <] to exit."
 
 
