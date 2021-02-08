@@ -23,7 +23,7 @@ function loadScript(url, onloadFunction) {
     newScript.onerror = loadError;
     if (onloadFunction) { newScript.onload = onloadFunction; }
     pageScripts.appendChild(newScript);
-    newScript.src = url;
+    newScript.src = app_location+url;
 }
 
 function loadStyle(url) {
