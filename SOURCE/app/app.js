@@ -7,7 +7,8 @@
 //║       than few days, better have something prepared.          ║ √ 23.01.2021. ║
 //╚═══════════════════════════════════════════════════════════════╩═══════════════╝
 
-const true_origin = "http://localhost:8080"
+const true_origin = "https://myusernameismyusername.github.io"
+const app_location = "https://myusernameismyusername.github.io/A-O_documentation_maker/"
 // Some variables setup
 var ao_loader = document.getElementById("loader");
 var pageScripts = document.getElementById("app_scripts_container");
@@ -29,7 +30,7 @@ function loadStyle(url) {
     var newStyle = document.createElement("link");
     newStyle.setAttribute("rel", "stylesheet");
     newStyle.setAttribute("type", "text/css");
-    newStyle.setAttribute("href", url);
+    newStyle.setAttribute("href", app_location+url);
     pageStyles.appendChild(newStyle);
 }
 
