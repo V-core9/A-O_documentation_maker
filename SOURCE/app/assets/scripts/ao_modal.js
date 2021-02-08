@@ -2,10 +2,10 @@
 function trowModal(data) {
     // create a new div element
     var newModal = document.createElement("div");
-    newModal.classList.add('ao_modal');
+    newModal.classList.add("ao_modal");
     // create a new div element
     var newModalInner = document.createElement("div");
-    newModalInner.classList.add('ao_modal_inner');
+    newModalInner.classList.add("ao_modal_inner");
     // and give it some content
     var newModalTitle = document.createElement("h2");
     var newModalTitleText = document.createTextNode(data.title);
@@ -33,11 +33,11 @@ function trowModal(data) {
 //TEST MODAL 
 
 var testModal = {
-    title: 'Error [alpha_version]!',
-    text: 'Do you want to continue',
-    icon: 'error',
-    confirmButtonText: 'Cool',
-    cancelButtonText: 'Nope',
+    title: "Error [alpha_version]!",
+    text: "Do you want to continue",
+    icon: "error",
+    confirmButtonText: "Cool",
+    cancelButtonText: "Nope",
     showCancelButton: true,
     showCloseButton: true
 }

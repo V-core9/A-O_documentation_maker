@@ -1,3 +1,4 @@
+#!/bin/bash
 #╔═══════════════════════════════════════════════════════════════════════════════╗
 #║ ♠ File Name: install.sh                                                       ║
 #║ ↔ Location: <: public_root :>/ Dev / sh / install.sh                          ║
