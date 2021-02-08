@@ -12,7 +12,7 @@ var pageScripts = document.getElementById("app_scripts_container");
 var pageStyles = document.getElementById("app_styles_container");
 
 function loadError(oError) {
-    throw new URIError("The script " + oError.target.src + " didn"t load correctly.");
+    throw new URIError("The script " + oError.target.src + " didn't load correctly.");
 }
 
 function loadScript(url, onloadFunction) {
