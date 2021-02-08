@@ -3,6 +3,9 @@ function trowModal(data) {
     // create a new div element
     var newModal = document.createElement("div");
     newModal.classList.add('ao_modal');
+    // create a new div element
+    var newModalInner = document.createElement("div");
+    newModalInner.classList.add('ao_modal_inner');
     // and give it some content
     var newModalTitle = document.createElement("h2");
     var newModalTitleText = document.createTextNode(data.title);
@@ -17,9 +20,11 @@ function trowModal(data) {
     newModalButton.appendChild(newModalButtonText);
 
     // add the text node to the newly created div
-    newModal.appendChild(newModalTitle);
-    newModal.appendChild(newModalTitle);
-    newModal.appendChild(newModalButton);
+    newModalInner.appendChild(newModalTitle);
+    newModalInner.appendChild(newModalTitle);
+    newModalInner.appendChild(newModalButton);
+
+    newModal.appendChild(newModalInner);
 
     document.body.appendChild(newModal);
 }
