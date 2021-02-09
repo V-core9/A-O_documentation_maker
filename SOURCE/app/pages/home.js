@@ -1,11 +1,11 @@
-function createHomepage(){
-    landingHomeElement();
+function createHomepage() {
+  landingHomeElement();
 
-    finishLoading();
+  finishLoading();
 }
 
-function landingHomeElement(){
-    // create a new div element
+function landingHomeElement() {
+  // create a new div element
   const newDiv = document.createElement("div");
 
   // and give it some content

@@ -1,11 +1,11 @@
-function createContactPage(){
-    landingContactElement();
+function createContactPage() {
+  landingContactElement();
 
-    finishLoading();
+  finishLoading();
 }
 
-function landingContactElement(){
-    // create a new div element
+function landingContactElement() {
+  // create a new div element
   const newDiv = document.createElement("div");
   newDiv.id = "landing_main";
 

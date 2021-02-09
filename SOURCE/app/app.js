@@ -7,54 +7,53 @@
 //║       than few days, better have something prepared.          ║ √ 23.01.2021. ║
 //╚═══════════════════════════════════════════════════════════════╩═══════════════╝
 
-const true_origin = "https://myusernameismyusername.github.io"
-const app_location = "https://myusernameismyusername.github.io/A-O_documentation_maker/"
-// Some variables setup
+const true_origin = "http://localhost:8080"
+  // Some variables setup
 var ao_loader = document.getElementById("loader");
 var pageScripts = document.getElementById("app_scripts_container");
 var pageStyles = document.getElementById("app_styles_container");
 
 function loadError(oError) {
-    throw new URIError("The script " + oError.target.src + " didn't load correctly.");
+  throw new URIError("The script " + oError.target.src + " didn't load correctly.");
 }
 
 function loadScript(url, onloadFunction) {
-    var newScript = document.createElement("script");
-    newScript.onerror = loadError;
-    if (onloadFunction) { newScript.onload = onloadFunction; }
-    pageScripts.appendChild(newScript);
-    newScript.src = app_location+url;
+  var newScript = document.createElement("script");
+  newScript.onerror = loadError;
+  if (onloadFunction) { newScript.onload = onloadFunction; }
+  pageScripts.appendChild(newScript);
+  newScript.src = url;
 }
 
 function loadStyle(url) {
-    var newStyle = document.createElement("link");
-    newStyle.setAttribute("rel", "stylesheet");
-    newStyle.setAttribute("type", "text/css");
-    newStyle.setAttribute("href", app_location+url);
-    pageStyles.appendChild(newStyle);
+  var newStyle = document.createElement("link");
+  newStyle.setAttribute("rel", "stylesheet");
+  newStyle.setAttribute("type", "text/css");
+  newStyle.setAttribute("href", url);
+  pageStyles.appendChild(newStyle);
 }
 
-function finishLoading(){
-    document.body.classList.add('loaded');
+function finishLoading() {
+  document.body.classList.add('loaded');
 }
 
-function startLoading(){
-    document.body.classList.remove('loaded');
+function startLoading() {
+  document.body.classList.remove('loaded');
 }
 
 
-window.onload = function () {
+window.onload = function() {
 
-    if (true_origin !== window.location.origin) {
-        console.log("Origin not cool. Mkey? ");
-        window.location.replace(true_origin);
-    }
+  if (true_origin !== window.location.origin) {
+    console.log("Origin not cool. Mkey? ");
+    window.location.replace(true_origin);
+  }
 
-    loadScript("/assets/scripts/ao_modal.js", function () { /* testModalFunc(); */ });
-    loadScript("/assets/scripts/ao_router.js", function () { findCurrentRoute(); });
+  loadScript("/assets/scripts/ao_modal.js", function() { /* testModalFunc(); */ });
+  loadScript("/assets/scripts/ao_router.js", function() { findCurrentRoute(); });
 
-    loadStyle("/assets/styles/app.css");
-    loadStyle("/assets/styles/modal.css");
+  loadStyle("/assets/styles/app.css");
+  loadStyle("/assets/styles/modal.css");
 
 };
 
