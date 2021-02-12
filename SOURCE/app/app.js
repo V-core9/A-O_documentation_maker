@@ -33,6 +33,15 @@ function loadStyle(url) {
   pageStyles.appendChild(newStyle);
 }
 
+function loadSection(fileName) {
+  var request = new XMLHttpRequest();
+  request.open("GET", "/sections/" + fileName + ".html", false); // `false` makes the request synchronous
+  request.send(null);
+  if (request.status === 200) {
+    return request.responseText;
+  }
+}
+
 function finishLoading() {
   document.body.classList.add('loaded');
 }

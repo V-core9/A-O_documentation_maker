@@ -1,0 +1,46 @@
+<header>
+  <nav aria-label="Header">
+    <a href="/" title="A^O_DOCS" class="ao_logo" aria-label="A^O_DOCS">
+      <img src="/assets/images/logo.jpg" alt="logo">
+    </a>
+
+    <div class="main_docs_header">
+
+      <div class="search" data-component="search" role="dialog">
+        <div class="search__inner" role="search">
+          <form class="ao_docs_search__form" name="search">
+            <input type="text" aria-label="Search documentation" placeholder="Search documentation" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false">
+            <label class="search__icon icon" for="__search">
+        			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"></path></svg>
+      			</label>
+            <button type="reset" class="search__icon icon" aria-label="Clear" data-component="search-reset" tabindex="-1">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
+						</button>
+          </form>
+          <div class="search__output">
+            <div class="search__wrap">
+              <div class="search-result" data-component="search-result">
+                <div class="search-result__meta">
+                  Type to start searching
+                </div>
+                <ol class="search-result__list"></ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="ao_version_select" class="select-input-container">
+        <p>Version</p>
+        <select class="ao_select" title="Solution for all your versions and subversions.">
+					<option value=".">Web Cloud (NEW)</option>
+					<option value="v3.2">Self-hosted 2.2</option>
+					<option value="v3.1">Self-hosted 1.1</option>
+					<option value="v3.0">Self-hosted 1.0</option>
+				</select>
+      </div>
+
+      <a href="/register" class="ao-btn">Register</a>
+    </div>
+  </nav>
+</header>
