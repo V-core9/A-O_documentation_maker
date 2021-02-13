@@ -7,7 +7,7 @@
 //║       than few days, better have something prepared.          ║ √ 23.01.2021. ║
 //╚═══════════════════════════════════════════════════════════════╩═══════════════╝
 
-const true_origin = "http://localhost:8080"
+const true_origin = "https://white-rattlesnake-22.loca.lt"
   // Some variables setup
 var ao_loader = document.getElementById("loader");
 var pageScripts = document.getElementById("app_scripts_container");
@@ -50,8 +50,7 @@ function startLoading() {
   document.body.classList.remove('loaded');
 }
 
-
-window.onload = function() {
+document.addEventListener("DOMContentLoaded", function(event) {
 
   if (true_origin !== window.location.origin) {
     console.log("Origin not cool. Mkey? ");
@@ -63,8 +62,8 @@ window.onload = function() {
 
   loadStyle("/assets/styles/app.css");
   loadStyle("/assets/styles/modal.css");
+});
 
-};
 
 
 //▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
