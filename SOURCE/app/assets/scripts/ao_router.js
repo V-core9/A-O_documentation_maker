@@ -5,10 +5,12 @@ var routes = [{
   routeAliases: ["/index", "/index.html"],
   page() {
     loadStyle("/assets/styles/home_page.css")
+    loadStyle("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
     loadPage("homepage")
     loadScript("/assets/scripts/ao_shortcodes.js")
     loadScript("/assets/scripts/ao_helpers.js")
     loadScript("/assets/scripts/ao_debugger.js")
+    loadScript("/assets/scripts/ao_rcmenu.js")
     loadScript("/assets/scripts/homepage.js")
   }
 },
