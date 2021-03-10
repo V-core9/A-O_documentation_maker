@@ -1,0 +1,394 @@
+  <style>
+    body {
+    background: #444;
+    color: white;
+}
+
+.tab {
+    display: none;
+    padding: 5px 10px;
+    height: calc(100% - 3em);
+  }
+  
+  .tab.visible{
+    display: block;
+  }
+  
+  .tab .title {
+    font-size: 2em;
+  }
+  
+  .tabsButtons {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+  }
+  
+  .tabsButtons button {
+      background: #2196F3;
+      color: white;
+      border: none;
+      padding: 0.25em 0.5em;
+      transition: 0.2s ease all;
+  }
+  
+  .tabsButtons button:hover {
+      background: #0c538c;
+      color: white;
+      cursor: pointer;
+  }
+
+
+.singleShotCode {
+    background: #505050;
+    padding: 5px 10px;
+    color: white;
+    position: relative;
+    margin: 5px 0px;
+}
+
+.singleShotCode p {
+    margin: 0;
+    line-height: 1.75em;
+    padding-left: 20px;
+}
+
+.singleShotCode p.description {
+    margin: 0;
+    line-height: 1.75em;
+    padding-left: 20px;
+}
+
+.singleShotCode p .number {
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    color: orange;
+}
+
+
+
+.rootModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.rootModal .inner {
+    width: calc(100% - 6em);
+    background: gray;
+    padding: 3em;
+    left: 0;
+    position: absolute;
+    top: calc(50% - 10em);
+    text-align: center;
+    overflow: hidden;
+    border-top: 2vh solid #4e4e4e;
+    border-bottom: 2vh solid #6b6b6b;
+}
+
+.rootModal .inner p {
+    margin: 15px;
+    z-index: 50;
+    position: relative;
+}
+
+.rootModal .inner p.title {
+    font-size: 25px;
+    z-index: 50;
+    margin-top: 0;
+}
+
+.rootModal button {
+    background: orange;
+    border: none;
+    margin: 0 5px;
+    color: white;
+    font-size: 20px;
+    padding: 5px 15px;
+    cursor: pointer;
+    position: relative;
+    z-index: 50;
+}
+
+.rootModal button:hover {
+    background: darkorange;
+}
+
+.rootModal .inner:before {
+    content: "";
+    width: 100vw;
+    height: 100vw;
+    display: block;
+    background: grey;
+    border: 5vw #6b6b6b solid;
+    outline: 5vw #4e4e4e solid;
+    position: absolute;
+    transform: rotate(45deg);
+    bottom: 10vw;
+    left: -5vw;
+    z-index: 10;
+}
+
+.rootModal .inner:after {
+    content: "";
+    width: 100vw;
+    height: 100vw;
+    display: block;
+    background: grey;
+    border: 5vw #6b6b6b dashed;
+    outline: 10vw #4e4e4e solid;
+    position: absolute;
+    transform: rotate(45deg);
+    bottom: -10vw;
+    left: -5vw;
+    z-index: 0;
+}
+  </style>
+
+
+
+
+<header>
+  <nav aria-label="Header">
+    <a href="/" title="A^O_DOCS" class="ao_logo" aria-label="A^O_DOCS">
+      <img src="/assets/images/icons/favicon-96x96.png" alt="logo">A^O_DOCS
+    </a>
+
+    <div class="main_docs_header">
+
+      <div class="search" data-component="search" role="dialog">
+        <div class="search__inner" role="search">
+          <form class="ao_docs_search__form" name="search">
+            <input type="text" aria-label="Search documentation" placeholder="Search documentation" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false">
+            <label class="search__icon icon" for="__search">
+        			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"></path></svg>
+      			</label>
+            <button type="reset" class="search__icon icon" aria-label="Clear" data-component="search-reset" tabindex="-1">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
+						</button>
+          </form>
+          <div class="search__output">
+            <div class="search__wrap">
+              <div class="search-result" data-component="search-result">
+                <div class="search-result__meta">
+                  Type to start searching
+                </div>
+                <ol class="search-result__list"></ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="ao_version_select" class="select-input-container">
+        <p>Version</p>
+        <select class="ao_select" title="Solution for all your versions and subversions.">
+					<option value=".">Web Cloud (NEW)</option>
+					<option value="v3.2">Self-hosted 2.2</option>
+					<option value="v3.1">Self-hosted 1.1</option>
+					<option value="v3.0">Self-hosted 1.0</option>
+				</select>
+      </div>
+
+      <a href="/register" class="ao-btn">Register</a>
+    </div>
+  </nav>
+</header>
+
+
+<div class="docs_container_page">
+  <ul class="docs_sidebar">
+    <li class="nav__item">
+      <a href="organizations/manual-organizations/creating-and-renaming-an-organization/" title="Creating and renaming an organization" class="nav__link">
+				Creating and renaming an organization
+			</a>
+    </li>
+    <li class="nav__item">
+      <a href="organizations/manual-organizations/creating-and-managing-teams/" title="Creating and managing teams" class="nav__link">
+				Creating and managing teams
+			</a>
+    </li>
+    <li class="nav__item">
+      <a href="organizations/manual-organizations/managing-team-repositories/" title="Managing team repositories" class="nav__link">
+				Managing team repositories
+			</a>
+    </li>
+    <li class="nav__item">
+      <a href="organizations/manual-organizations/administrative-permissions/" title="Administrative permissions" class="nav__link">
+				Administrative permissions
+			</a>
+    </li>
+    <li class="nav__item">
+      <a href="organizations/manual-organizations/share-your-repository-with-a-non-codacy-user/" title="Share your repository with a non-Codacy user" class="nav__link">
+				Share your repository with a non-Codacy user
+			</a>
+    </li>
+    <li class="nav__item">
+      <a href="organizations/manual-organizations/creating-and-renaming-an-organization/" title="Creating and renaming an organization" class="nav__link">
+				Creating and renaming an organization
+			</a>
+    </li>
+    <li class="nav__item">
+      <a href="organizations/manual-organizations/creating-and-managing-teams/" title="Creating and managing teams" class="nav__link">
+				Creating and managing teams
+			</a>
+    </li>
+    <li class="nav__item">
+      <a href="organizations/manual-organizations/managing-team-repositories/" title="Managing team repositories" class="nav__link">
+				Managing team repositories
+			</a>
+    </li>
+    <li class="nav__item">
+      <a href="organizations/manual-organizations/administrative-permissions/" title="Administrative permissions" class="nav__link">
+				Administrative permissions
+			</a>
+    </li>
+    <li class="nav__item">
+      <a href="organizations/manual-organizations/share-your-repository-with-a-non-codacy-user/" title="Share your repository with a non-Codacy user" class="nav__link">
+				Share your repository with a non-Codacy user
+			</a>
+    </li>
+  </ul>
+
+  <article id="docs_page_content" class="content__inner typeset">
+    <div class="page_inner_content">
+      <h1 id="documentation-home">Documentation home<a class="headerlink" href="#documentation-home" title="Permanent link">¶</a></h1>
+      <div class="content-columns-wrapper">
+        
+        <div class='docs'>
+          <h4>Shortcodes:</h4>
+          <div class="singleShotCode">
+              <p><span class="number">1.</span> [Q + W + E] => <span style="color: orange;">debugWindowTrigger()</span> </p>
+              <p class="description">Will trigger visibility of sidebar. Additional: has 3s delay between triggers when continues pressing.</p>
+          </div>
+          <div class="singleShotCode">
+              <p><span class="number">2.</span> [alt + Enter] => <span style="color: orange;">triggerFullscreen()</span> </p>
+              <p class="description">FullScreen trigger function. Additional: has 3s delay between triggers when continues pressing.</p>
+          </div>
+          <div class="singleShotCode">
+              <p><span class="number">3.</span> [alt + C] => <span style="color: orange;">closeWindowFunc()</span> </p>
+              <p class="description">Will just close this tab.</p>
+              <p style="color:red;">Disabled</p>
+          </div>
+          <hr>
+          <h4>Modals</h4>
+          <button onclick="showRootModal();">Show Root Modal</button>
+      </div>
+        <div class="content-link-column">
+          <div>Getting started</div>
+
+          <a class="content-link" href="getting-started/getting-started-with-A^O_DOCS/">
+            <div>Adding your first repository</div>
+            <div>Sign up with your Git provider so that A^O_DOCS can have access to your Git provider organizations and members. You can then add any repository you have access to with one click.</div>
+          </a>
+
+          <a class="content-link" href="getting-started/supported-languages-and-tools/">
+            <div>Supported languages</div>
+            <div>A^O_DOCS supports over 30 programming languages out of the box, and regularly adds support for new languages and tools.</div>
+          </a>
+        </div>
+
+        <div class="content-link-column">
+          <div>Using A^O_DOCS</div>
+
+          <a class="content-link" href="organizations/what-are-synced-organizations/">
+            <div>Creating and managing an organization</div>
+            <div>A^O_DOCS automatically imports your Git provider organizations and members. Changes reflect on A^O_DOCS in real time and you can manage people who joined your organization on A^O_DOCS.</div>
+          </a>
+
+          <a class="content-link" href="repositories-configure/integrations/github-integration/">
+            <div>Setting up integrations</div>
+            <div>Set up integrations to receive A^O_DOCS status checks on your current workflow.</div>
+          </a>
+        </div>
+      </div>
+
+      <h2>Most popular topics</h2>
+
+      <div class="topic-row">
+        <a class="topic-card" href="repositories-configure/code-patterns/">
+          <div class="tc-icon">
+            <img alt="Configuring code patterns" src="/assets/images/icons/favicon-96x96.png">
+          </div>
+          <div class="tc-content">
+            <div>Configuring code patterns</div>
+            <div>Adapt A^O_DOCS to your scenario by configuring the code patterns used to analyze your repositories</div>
+          </div>
+        </a>
+        <a class="topic-card" href="coverage-reporter/adding-coverage-to-your-repository/">
+          <div class="tc-icon">
+            <img alt="Adding coverage reports" src="/assets/images/icons/favicon-96x96.png">
+          </div>
+          <div class="tc-content">
+            <div>Adding coverage reports</div>
+            <div>Set up your repositories to show code coverage reports directly on A^O_DOCS.</div>
+          </div>
+        </a>
+        <a class="topic-card" href="organizations/managing-people/">
+          <div class="tc-icon">
+            <img alt="Adding and managing Authors" src="/assets/images/icons/favicon-96x96.png">
+          </div>
+          <div class="tc-content">
+            <div>Managing people in organizations</div>
+            <div>Invite your team members to join your organization on A^O_DOCS so that A^O_DOCS analyzes their commits on private repositories.</div>
+          </div>
+        </a>
+      </div>
+      <div class="source-date">
+        <small>Last modified <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 11, 2021</span></small>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="footer-nav">
+        <nav class="footer-nav__inner">
+          <div class="footer-logo">
+            <img src="/assets/images/icons/favicon-96x96.png" alt="A^O_DOCS">
+          </div>
+          <div class="nav-links-wrapper">
+            <ul>
+              <li>Product</li>
+              <li><a href="/product">Product</a></li>
+              <li><a href="/customers">Customers</a></li>
+              <li><a href="/pricing">Pricing</a></li>
+              <li><a href="/self-hosted">Self-hosted</a></li>
+            </ul>
+            <ul>
+              <li>Company</li>
+              <li><a href="/about">About us</a></li>
+              <li><a href="/careers">Careers</a></li>
+              <li><a href="/security">Security</a></li>
+              <li><a href="/blog/">Blog</a></li>
+              <li><a href="/ebook">eBooks</a></li>
+            </ul>
+            <ul>
+              <li>Help</li>
+              <li><a href="/community">A^O_DOCS Community</a></li>
+              <li><a href="/self-hosted">Request a demo</a></li>
+              <li><a href="/privacy">Privacy policy</a></li>
+              <li><a href="/cookies">Cookies policy</a></li>
+              <li><a href="/terms">Terms of service</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-meta typeset">
+        <div class="footer-meta__inner grid">
+          <div class="footer-copyright">
+
+            <div class="footer-copyright__highlight">
+              © 2021 <a href="/">A^O_DOCS</a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </footer>
+  </article>
+</div>
+
+<div id="debugContainer"></div>

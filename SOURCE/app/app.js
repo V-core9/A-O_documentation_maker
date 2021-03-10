@@ -7,7 +7,9 @@
 //║       than few days, better have something prepared.          ║ √ 23.01.2021. ║
 //╚═══════════════════════════════════════════════════════════════╩═══════════════╝
 
-const true_origin = "https://white-rattlesnake-22.loca.lt"
+const true_origin = "http://localhost:8080"
+var currentLocation = window.location.pathname;
+
   // Some variables setup
 var ao_loader = document.getElementById("loader");
 var pageScripts = document.getElementById("app_scripts_container");
@@ -50,6 +52,38 @@ function startLoading() {
   document.body.classList.remove('loaded');
 }
 
+
+function show404page() {
+  loadScript("/pages/error_404.js");
+}
+
+function findCurrentRoute() {
+  var pageFound = false;
+  for (let i = 0; i < routes.length; i++) {
+    if (currentLocation === routes[i].route) {
+      routes[i].page();
+      pageFound = true;
+    }
+
+    if (routes[i].routeAliases !== undefined) {
+      for (let j = 0; j < routes[i].routeAliases.length; j++) {
+        if (currentLocation === routes[i].routeAliases[j]) {
+          routes[i].page();
+          pageFound = true;
+        }
+      }
+    }
+
+  }
+  if (!pageFound) {
+    show404page();
+  }
+
+  return pageFound;
+}
+
+
+
 document.addEventListener("DOMContentLoaded", function(event) {
 
   if (true_origin !== window.location.origin) {
@@ -62,6 +96,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   loadStyle("/assets/styles/app.css");
   loadStyle("/assets/styles/modal.css");
+  
 });
 
 

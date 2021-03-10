@@ -43,3 +43,17 @@ function testModalFunc() {
 
   trowModal(testModal);
 }
+
+
+
+function showRootModal(event){
+  event.preventDefault();
+  document.body.innerHTML += `<div id="rootModal">`
+                             +`<div class="inner">`
+                             +`<p class="title">Something Happened</p>`
+                             +`<p class="description">Yea you can say so something just showed up...sooo</p>`
+                             +`<button onclick="document.querySelector('#rootModal').remove()">Yea</button>`
+                             +`<button>No</button>`
+                             +`</div>`
+                             +`</div>`
+                            }

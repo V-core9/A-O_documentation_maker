@@ -1,4 +1,4 @@
-function createHomepage() {
+function createHomepageOld() {
   landingHomeElement();
 
   finishLoading();
@@ -18,6 +18,17 @@ function landingHomeElement() {
   const currentDiv = document.getElementById("div1");
 
   document.getElementById('app').appendChild(newDiv);
+}
+
+function createHomepage() {
+  loadStyle("/assets/styles/home_page.css");
+  loadScript("/assets/scripts/ao_shortcodes.js", function() { /* testModalFunc(); */ });
+  loadScript("/assets/scripts/ao_helpers.js", function() { /* testModalFunc(); */ });
+  loadScript("/assets/scripts/ao_debugger.js", function() { /* testModalFunc(); */ });
+  document.getElementById("app").innerHTML = loadSection("homepage");
+  loadScript("/assets/scripts/homepage.js", function() { /* testModalFunc(); */ });
+
+  finishLoading();
 }
 
 createHomepage();

@@ -1,5 +1,3 @@
-var currentLocation = window.location.pathname;
-
 //DEMO ROUTES
 
 var routes = [{
@@ -17,38 +15,16 @@ var routes = [{
     }
   },
   {
+    route: "/qmc",
+    routeAliases: ["/qmc_md", "/qmc_me", "/qmc_az", "/qmc_min", "/qmc_ct", "/ny_qmc", "/md_qmc", "/me_qmc", "/az_qmc", "/min_qmc", "/ct_qmc", "/QmC_New_York"  ],
+    page() {
+      loadScript("/pages/qmc.js");
+    }
+  },
+  {
     route: "/contact",
     page() {
       loadScript("/pages/contact.js");
     }
   }
 ];
-
-function show404page() {
-  loadScript("/pages/error_404.js");
-}
-
-function findCurrentRoute() {
-  var pageFound = false;
-  for (let i = 0; i < routes.length; i++) {
-    if (currentLocation === routes[i].route) {
-      routes[i].page();
-      pageFound = true;
-    }
-
-    if (routes[i].routeAliases !== undefined) {
-      for (let j = 0; j < routes[i].routeAliases.length; j++) {
-        if (currentLocation === routes[i].routeAliases[j]) {
-          routes[i].page();
-          pageFound = true;
-        }
-      }
-    }
-
-  }
-  if (!pageFound) {
-    show404page();
-  }
-
-  return pageFound;
-}

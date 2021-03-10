@@ -1,0 +1,787 @@
+#app {
+  font-family: Monospace;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-size: 15px;
+  background: #222;
+  //min-height: 2000px;
+  .applicationContainer {
+    width: 100%;
+    height: 100%;
+    display: block;
+    
+    .headerPart {
+      top: calc(7.5em - 100vh);
+      left: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      color: white;
+      background: #333;
+      z-index: 10;
+      position: sticky;
+
+      .topNav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1em;
+
+        .leftPart {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          top:1em;
+          left:1em;
+          position: fixed;
+          z-index: 20;
+
+          .appsDropDownMenu{
+            margin-right: 1em;
+
+            .icon {
+              font-size: 1.5em;
+              height: 2em;
+              width: 2em;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              transition: 0.25s linear all;
+            }
+
+            .icon:hover {
+              border-radius: .25em;
+              background: gray;
+              cursor: pointer;
+            }
+          }
+
+          .infoLeft {
+            display: flex;
+            flex-direction: row;
+
+            i{
+
+            }
+            .dataInfo{
+              margin: 0 0 0 0.5em;
+              padding: 0;
+              font-weight: bold;
+            }
+          }
+        }
+
+        .rightPart {
+          z-index: 20;
+          top:1em;
+          right:2em;
+          position: fixed;
+
+          .appsDropDownMenu {
+
+            .icon {
+              font-size: 1.5em;
+              height: 2em;
+              width: 2em;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              transition: 0.25s linear all;
+            }
+
+            .icon:hover {
+              border-radius: 5px;
+              background: gray;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+
+      .contentTop {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        min-height: calc(100vh - 4.5em);
+
+        .alignTop {
+          height: 100%;
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          position: sticky;
+          top: -1px;
+
+          .brandContainer {
+            display: flex;
+            margin: 2em auto 4em;
+            align-items: center;
+
+            .logoBrand {
+
+            }
+
+            p {
+              font-size: 70px;
+              letter-spacing: 3px;
+              margin: 0 0 0 .5em;
+              text-decoration: underline;
+              text-decoration-color: #3090fa;
+            }
+          }
+
+          .searchBox {
+            top: 0.75em;
+            position: sticky;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            color: darkgray;
+            font-size: 1.25em;        
+            min-width: 40%;
+
+            input {
+              font-size: inherit;
+              line-height: inherit;
+              padding: 0.75em 1em;
+              background: white;
+              color: darkgray;
+              border: none;
+              outline: none;
+              height: 1em;
+              background: #555;
+              border-radius: 0.5em 0 0 0.5em;
+              width: calc( 100% - 2em );
+              color: white;
+
+              &::placeholder {
+                color : #333;
+              }
+            }
+
+            .iconBrand {
+              font-size: inherit;
+              line-height: inherit;
+              background: #555;
+              padding: 0.75em 1em;
+              height: 1em;
+              width: 1em;
+            }
+
+            .iconSearch {
+              font-size: inherit;
+              line-height: inherit;
+              padding: 0.75em 1em;
+              background: #3090fa;
+              color: white;
+              cursor: pointer;
+              height: 1em;
+              width: 2em;
+              text-align: center;
+              border-radius: 0 0.5em 0.5em 0;
+              transition: 0.15s ease all;
+
+              &:hover {
+                transform: scale(1.05);
+                box-shadow: 0 2px 5px gray;
+
+              }
+
+              &:hover i {
+                  transform: scale(1.5);
+                  transition: 0.25s ease all;
+              }
+
+              i {
+                transition: 0.15s ease all;
+              }
+            }
+
+            &:hover {
+
+              input, .iconBrand {
+                background: #555;
+              }
+            }
+          }
+
+          .bookmarksBox {
+            display: flex;
+            flex-direction: column;
+            margin: 4em auto 2em;
+
+            .bookmarksBoxList {
+              display: flex;
+              flex-direction: row;
+
+              .bookmarkSingle{
+                border-radius: 0.5em;
+                margin: 0 0.5em;
+                position: relative;
+                cursor: pointer;
+
+                .headerOptions{
+                  position: absolute;
+                  width: 1.5em;
+                  height: 1.5em;
+                  font-size: 0.75em;
+                  top: 0.25em;
+                  right: 0.25em;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border-radius: 7.5px;
+                  cursor: help;
+                  transition: 0.15s ease all;
+                  z-index: 10;
+                  
+                  .icon {
+                    transform: rotate(90deg);
+                    opacity: 0;
+                  }
+
+                  &:hover {
+                    background: rgba(255,255,255,0.25);
+                    transition: 0.35s ease all;
+                  
+                  }
+
+                  &:active {
+                    background: rgba(255,255,255,0.95);
+                    transition: 0.05s ease all;
+                  }
+                }
+
+                .content {
+                  width: 5em;
+                  height: 5em;
+                  padding: 0.25em 0.5em;
+                  display: flex;
+                  align-items: center;
+                  border-radius: 10px;
+                  justify-content: center;
+                  transition: 0.25s ease all;
+
+                  &:hover {
+                    background: rgba(255,255,255,0.25);
+                    transition: 0.35s ease all;
+                    transform: scale(1.05);
+                    
+                    p {
+                      background: rgba(255,255,255,0.05);
+                    }
+                  }
+
+                  &:active {
+                    background: rgba(255,255,255,0.95);
+                    transition: 0.05s ease all;
+                  }
+
+                  img{
+                    width: 65%;
+                    height: auto;
+                  }
+                  p{
+                    font-size: 0.6em;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    margin: 0;
+                    height: 2em;
+                    width: calc(100% - 2em);
+                    line-height: 1em;
+                    display: flex;
+                    align-items: center;
+                    padding: 0 1em;
+                    color: #56bcf9;
+                    border-radius: 0 0 0.5em 0.5em;
+                  }
+                }
+              }
+            }
+          }
+
+        }
+      }
+    }
+
+    .midNavigationPart{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      position: sticky;
+      top: 5em;
+      z-index: 5;
+      background: #252525;
+      box-shadow: 0 6px 10px black;
+
+      .singleNavItem {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        color: gray;
+        cursor: pointer;
+        padding: 10px 20px;
+        opacity: 0.5;
+        transition: 0.3s ease all;
+
+        &:hover {
+          background: rgba(0,0,0,0.2);
+          opacity: 1;
+          transform: scale( 1.05 );
+          transition: 0.1s ease all;
+
+          p {
+            color: white;
+          }
+        }
+        p{
+          margin: 0;
+        }
+        i{
+          margin-right: .5em;
+          font-weight: 400;
+          color: #3090fa;
+          opacity: 0.5;
+        }
+      }    
+    }
+  }
+}
+
+
+
+
+///MY ANIMATED LOGO
+
+.back-circle {
+  z-index: 0;
+  position: relative;
+  border: 10px solid #3090fa;
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  /*-webkit-animation: moveCircleWhole 1s;
+  animation: moveCircleWhole 1s;*/
+}
+
+.page-container:hover .back-circle {
+  position: absolute;
+  z-index: 0;
+  border: 10px solid #3090fa;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  left: calc(0% + 50px);
+  top: calc(100% - 150px);
+  -webkit-animation: moveCircleWholeOut 2s;
+  animation: moveCircleWholeOut 2s;
+}
+
+@-webkit-keyframes moveCircleWhole {
+  from {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    left: calc(0% + 50px);
+    top: calc(100% - 150px);
+  }
+
+  to {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    left: calc(50% - 150px);
+    top: calc(50% - 150px);
+  }
+}
+
+@keyframes moveCircleWhole {
+  from {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    left: calc(0% + 50px);
+    top: calc(100% - 150px);
+  }
+
+  to {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    left: calc(50% - 150px);
+    top: calc(50% - 150px);
+  }
+}
+
+@-webkit-keyframes moveCircleWholeOut {
+  from {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    left: calc(50% - 150px);
+    top: calc(50% - 150px);
+  }
+
+  to {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    left: calc(0% + 50px);
+    top: calc(100% - 150px);
+  }
+}
+
+@keyframes moveCircleWholeOut {
+  from {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    left: calc(50% - 150px);
+    top: calc(50% - 150px);
+  }
+
+  to {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    left: calc(0% + 50px);
+    top: calc(100% - 150px);
+  }
+}
+
+.back-circle {
+  &:before {
+    display: block;
+    width: 0px;
+    height: 0px;
+    content: " ";
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    box-shadow: 0px 0px 20px 20px #3090fa;
+    border-radius: 50%;
+    -webkit-animation: scaleInner3 15s alternate infinite;
+    animation: scaleInner3 15s alternate infinite;
+  }
+
+  &:after {
+    content: " ";
+    display: block;
+    border: 10px solid #3090fa;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    height: calc(100% - 20px);
+    width: calc(100% - 20px);
+    -webkit-animation: rotateCircle 5s infinite;
+    animation: rotateCircle 5s alternate infinite;
+  }
+
+  .inner {
+    display: block;
+    width: 50%;
+    height: 50%;
+    left: calc(25% - 1px);
+    top: calc(25% - 1px);
+    position: absolute;
+    border: 1px solid #3090fa;
+    border-radius: 50%;
+    animation: scaleInner 4s alternate infinite;
+    -webkit-animation: scaleInner 4s infinite;
+
+    &:after {
+      content: " ";
+      display: block;
+      width: 50%;
+      height: 50%;
+      left: calc(25% - 1px);
+      top: calc(25% - 1px);
+      position: absolute;
+      border: 1px solid #888;
+      border-top-color: transparent;
+      border-bottom-color: transparent;
+      border-radius: 50%;
+      animation: scaleInner2 3s alternate infinite;
+      -webkit-animation: scaleInner2 3s infinite;
+    }
+  }
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes rotateCircle {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateCircle {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes scaleInner {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.25);
+  }
+}
+
+@keyframes scaleInner {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.25);
+  }
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes scaleInner2 {
+  from {
+    transform: scale(1) rotate(360deg);
+  }
+
+  to {
+    transform: scale(0.75) rotate(0deg);
+  }
+}
+
+@keyframes scaleInner2 {
+  from {
+    transform: scale(1) rotate(360deg);
+  }
+
+  to {
+    transform: scale(0.75) rotate(0deg);
+  }
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes scaleInner3 {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(5);
+  }
+}
+
+@keyframes scaleInner3 {
+  0% {
+    transform: scale(1);
+    box-shadow: 0px 0px 50px 30px #028DB699;
+  }
+
+  50% {
+    transform: scale(2.5);
+    box-shadow: 0px 0px 40px 15px #028DB6;
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0px 0px 50px 10px #028DB699;
+  }
+}
+
+
+
+
+/////for the scrollbar
+
+$color_1: #222;
+
+/*
+ * Cosmetics
+ */
+/**
+ * Layout
+ */
+/**
+ * Presentational Styles
+ */
+.scrollscreen--track {
+	width: 18px;
+	background: #444444;
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100%;
+	pointer-events: none;
+}
+.scrollscreen--slider {
+	padding: .25em;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	box-sizing: border-box;
+	height: 0;
+	border: none;
+	background: transparent;
+	pointer-events: none;
+	&::after {
+		background: #222222;
+		border-radius: 9999em;
+		content: '';
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+}
+.scrollscreen {
+	position: relative;
+	height: 100%;
+	max-height: calc(100% - .1em);
+	overflow: hidden;
+}
+*[dir='rtl'] {
+	.scrollscreen--track {
+		left: 0;
+		right: auto;
+	}
+}
+.scrollscreen--content {
+	position: relative;
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: auto;
+	&::-webkit-scrollbar {
+		-webkit-appearance: none;
+	}
+}
+h1 {
+	margin: 0;
+}
+main {
+	padding: 2em;
+}
+html {
+	height: 100%;
+}
+body {
+	height: 100%;
+	display: flex;
+}
+
+
+//scrollbar ENDING
+
+
+////////TESTING CRT///////////
+
+
+/* crt */
+
+.crt::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 2;
+  background-size: 100% 4px, 3px 100%;
+	animation: flicker 0.15s infinite, moveAnim 0.02s infinite linear;
+  pointer-events: none;
+  z-index: 2000
+}
+
+@keyframes moveAnim {
+	100% { 
+		top: 4px;
+	}
+}
+
+@keyframes flicker {
+  0% {
+  opacity: 0.27861;
+  }
+  5% {
+  opacity: 0.34769;
+  }
+  10% {
+  opacity: 0.23604;
+  }
+  15% {
+  opacity: 0.90626;
+  }
+  20% {
+  opacity: 0.18128;
+  }
+  25% {
+  opacity: 0.83891;
+  }
+  30% {
+  opacity: 0.65583;
+  }
+  35% {
+  opacity: 0.67807;
+  }
+  40% {
+  opacity: 0.26559;
+  }
+  45% {
+  opacity: 0.84693;
+  }
+  50% {
+  opacity: 0.96019;
+  }
+  55% {
+  opacity: 0.08594;
+  }
+  60% {
+  opacity: 0.20313;
+  }
+  65% {
+  opacity: 0.71988;
+  }
+  70% {
+  opacity: 0.53455;
+  }
+  75% {
+  opacity: 0.37288;
+  }
+  80% {
+  opacity: 0.71428;
+  }
+  85% {
+  opacity: 0.70419;
+  }
+  90% {
+  opacity: 0.7003;
+  }
+  95% {
+  opacity: 0.36108;
+  }
+  100% {
+  opacity: 0.24387;
+  }
+}
+
+
+/////END TESTIN CRT END/////////
