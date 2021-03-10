@@ -1,75 +1,74 @@
 <style>
-
-body {
+  body {
     background: #444;
     color: white;
-}
+  }
 
-.tab {
+  .tab {
     display: none;
     padding: 5px 10px;
     height: calc(100% - 3em);
   }
-  
-  .tab.visible{
+
+  .tab.visible {
     display: block;
   }
-  
+
   .tab .title {
     font-size: 2em;
   }
-  
+
   .tabsButtons {
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
   }
-  
+
   .tabsButtons button {
-      background: #2196F3;
-      color: white;
-      border: none;
-      padding: 0.25em 0.5em;
-      transition: 0.2s ease all;
+    background: #2196F3;
+    color: white;
+    border: none;
+    padding: 0.25em 0.5em;
+    transition: 0.2s ease all;
   }
-  
+
   .tabsButtons button:hover {
-      background: #0c538c;
-      color: white;
-      cursor: pointer;
+    background: #0c538c;
+    color: white;
+    cursor: pointer;
   }
 
 
-.singleShotCode {
+  .singleShotCode {
     background: #505050;
     padding: 5px 10px;
     color: white;
     position: relative;
     margin: 5px 0px;
-}
+  }
 
-.singleShotCode p {
+  .singleShotCode p {
     margin: 0;
     line-height: 1.75em;
     padding-left: 20px;
-}
+  }
 
-.singleShotCode p.description {
+  .singleShotCode p.description {
     margin: 0;
     line-height: 1.75em;
     padding-left: 20px;
-}
+  }
 
-.singleShotCode p .number {
+  .singleShotCode p .number {
     position: absolute;
     left: 10px;
     top: 5px;
     color: orange;
-}
+  }
 
 
 
-#rootModal {
+  #rootModal {
     position: fixed;
     top: 0;
     left: 0;
@@ -77,9 +76,9 @@ body {
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
     z-index: 2000;
-}
+  }
 
-#rootModal .inner {
+  #rootModal .inner {
     width: calc(100% - 6em);
     background: gray;
     padding: 3em;
@@ -90,21 +89,21 @@ body {
     overflow: hidden;
     border-top: 2vh solid #4e4e4e;
     border-bottom: 2vh solid #6b6b6b;
-}
+  }
 
-#rootModal .inner p {
+  #rootModal .inner p {
     margin: 15px;
     z-index: 50;
     position: relative;
-}
+  }
 
-#rootModal .inner p.title {
+  #rootModal .inner p.title {
     font-size: 25px;
     z-index: 50;
     margin-top: 0;
-}
+  }
 
-#rootModal button {
+  #rootModal button {
     background: #2196F3;
     border: none;
     margin: 0 5px;
@@ -114,13 +113,13 @@ body {
     cursor: pointer;
     position: relative;
     z-index: 50;
-}
+  }
 
-#rootModal button:hover {
+  #rootModal button:hover {
     background: #0c538c;
-}
+  }
 
-#rootModal .inner:before {
+  #rootModal .inner:before {
     content: "";
     width: 100vw;
     height: 100vw;
@@ -133,9 +132,9 @@ body {
     bottom: 10vw;
     left: -5vw;
     z-index: 10;
-}
+  }
 
-#rootModal .inner:after {
+  #rootModal .inner:after {
     content: "";
     width: 100vw;
     height: 100vw;
@@ -148,25 +147,25 @@ body {
     bottom: -10vw;
     left: -5vw;
     z-index: 0;
-}
+  }
 
 
-.contentPart {
+  .contentPart {
     display: flex;
     max-width: 1280px;
     padding: 2em;
     box-shadow: 0 0 5px black;
     margin: 20px auto;
-}
+  }
 
-.docs {
+  .docs {
     display: flex;
     flex-direction: column;
     gap: 10px;
     flex: 1;
-}
+  }
 
-.docs button {
+  .docs button {
     padding: 10px 15px;
     width: auto;
     display: flex;
@@ -179,12 +178,12 @@ body {
     font-weight: bold;
     letter-spacing: 1px;
     box-shadow: 0 0 10px black;
-}
-
-
+  }
 </style>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+  integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+  crossorigin="anonymous" />
 <div class="applicationContainer scrollscreen crt">
   <div class="headerPart ">
     <div class="topNav">
@@ -211,7 +210,7 @@ body {
             <div class="menuFooter"></div>
           </div>
         </div>
-        </div>
+      </div>
     </div>
     <div class="contentTop">
       <div class="alignTop">
@@ -221,7 +220,9 @@ body {
           <div class="back-circle ">
             <div class="inner"></div>
           </div>
-          <p>Omega<span style="color: #3090fa; font-weight: bold; text-decoration: underline;  text-decoration-color: white;">Web</span></p>
+          <p>Omega<span
+              style="color: #3090fa; font-weight: bold; text-decoration: underline;  text-decoration-color: white;">Web</span>
+          </p>
         </div>
         <div class="searchBox">
           <input type="text" class="searchTerm" placeholder="Search for anything...">
@@ -233,72 +234,75 @@ body {
           </div>
         </div>
         <div class="bookmarksBox">
-        <div class="bookmarksBoxHead">
-         
+          <div class="bookmarksBoxHead">
+
+          </div>
+          <div class="bookmarksBoxList">
+            <div class="bookmarkSingle">
+              <div class="headerOptions">
+                <div class="icon"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
+                <div class="dropDown"></div>
+              </div>
+              <div class="content">
+                <img
+                  src="https://i2.wp.com/livelikejohnbernecker.com/wp-content/uploads/2018/01/youtube-logo-designer-youtube-logo-png-transparent-background-download-diy-logo-designs.png?fit=1000%2C566&ssl=1">
+                <p class="bookmarkInfo">YouTube</p>
+              </div>
+            </div>
+            <div class="bookmarkSingle">
+              <div class="headerOptions">
+                <div class="icon"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
+                <div class="dropDown"></div>
+              </div>
+              <div class="content">
+                <img src="https://icon-library.com/images/github-icon-white/github-icon-white-6.jpg">
+                <p class="bookmarkInfo">GitHub</p>
+              </div>
+            </div>
+            <div class="bookmarkSingle">
+              <div class="headerOptions">
+                <div class="icon"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
+                <div class="dropDown"></div>
+              </div>
+              <div class="content">
+                <img
+                  src="https://i2.wp.com/livelikejohnbernecker.com/wp-content/uploads/2018/01/youtube-logo-designer-youtube-logo-png-transparent-background-download-diy-logo-designs.png?fit=1000%2C566&ssl=1">
+                <p class="bookmarkInfo">Twitter</p>
+              </div>
+            </div>
+            <div class="bookmarkSingle">
+              <div class="headerOptions">
+                <div class="icon"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
+                <div class="dropDown"></div>
+              </div>
+              <div class="content">
+                <img
+                  src="https://i2.wp.com/livelikejohnbernecker.com/wp-content/uploads/2018/01/youtube-logo-designer-youtube-logo-png-transparent-background-download-diy-logo-designs.png?fit=1000%2C566&ssl=1">
+                <p class="bookmarkInfo">YouTube</p>
+              </div>
+            </div>
+            <div class="bookmarkSingle">
+              <div class="headerOptions">
+                <div class="icon"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
+                <div class="dropDown"></div>
+              </div>
+              <div class="content">
+                <img src="https://icon-library.com/images/github-icon-white/github-icon-white-6.jpg">
+                <p class="bookmarkInfo">GitHub</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="bookmarksBoxList">
-          <div class="bookmarkSingle">
-            <div class="headerOptions">
-              <div class="icon"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
-              <div class="dropDown"></div>
-            </div>
-            <div class="content">
-              <img src="https://i2.wp.com/livelikejohnbernecker.com/wp-content/uploads/2018/01/youtube-logo-designer-youtube-logo-png-transparent-background-download-diy-logo-designs.png?fit=1000%2C566&ssl=1">
-              <p class="bookmarkInfo">YouTube</p>
-            </div>
-          </div>
-          <div class="bookmarkSingle">
-            <div class="headerOptions">
-              <div class="icon"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
-              <div class="dropDown"></div>
-            </div>
-            <div class="content">
-              <img src="https://icon-library.com/images/github-icon-white/github-icon-white-6.jpg">
-              <p class="bookmarkInfo">GitHub</p>
-            </div>
-          </div>
-          <div class="bookmarkSingle">
-            <div class="headerOptions">
-              <div class="icon"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
-              <div class="dropDown"></div>
-            </div>
-            <div class="content">
-              <img src="https://i2.wp.com/livelikejohnbernecker.com/wp-content/uploads/2018/01/youtube-logo-designer-youtube-logo-png-transparent-background-download-diy-logo-designs.png?fit=1000%2C566&ssl=1">
-              <p class="bookmarkInfo">Twitter</p>
-            </div>
-          </div>
-          <div class="bookmarkSingle">
-            <div class="headerOptions">
-              <div class="icon"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
-              <div class="dropDown"></div>
-            </div>
-            <div class="content">
-              <img src="https://i2.wp.com/livelikejohnbernecker.com/wp-content/uploads/2018/01/youtube-logo-designer-youtube-logo-png-transparent-background-download-diy-logo-designs.png?fit=1000%2C566&ssl=1">
-              <p class="bookmarkInfo">YouTube</p>
-            </div>
-          </div>
-          <div class="bookmarkSingle">
-            <div class="headerOptions">
-              <div class="icon"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></div>
-              <div class="dropDown"></div>
-            </div>
-            <div class="content">
-              <img src="https://icon-library.com/images/github-icon-white/github-icon-white-6.jpg">
-              <p class="bookmarkInfo">GitHub</p>
-            </div>
-          </div>
-        </div>
-      </div>
       </div>
     </div>
   </div>
-  
+
   <div class="midNavigationPart">
     <div class="singleNavItem">
       <i class="fas fa-edit"></i>
       <p>This Page</p>
     </div>
-    <div class="singleNavItem">
+    <div class="singleNavItem" href='/docs'>
       <i class="fas fa-edit"></i>
       <p>Documentation</p>
     </div>
@@ -319,31 +323,33 @@ body {
       <p>YeaShooting</p>
     </div>
   </div>
-  
+
   <div class="contentPart">
     <div class='docs'>
       <h4>Shortcodes:</h4>
       <div class="singleShotCode">
-          <p><span class="number">1.</span> [Q + W + E] => <span style="color: orange;">debugWindowTrigger()</span> </p>
-          <p class="description">Will trigger visibility of sidebar. Additional: has 3s delay between triggers when continues pressing.</p>
+        <p><span class="number">1.</span> [shift + D] => <span style="color: #2196F3;">debugWindowTrigger()</span> </p>
+        <p class="description">Will trigger visibility of sidebar. Additional: has 3s delay between triggers when
+          continues pressing.</p>
       </div>
       <div class="singleShotCode">
-          <p><span class="number">2.</span> [alt + Enter] => <span style="color: orange;">triggerFullscreen()</span> </p>
-          <p class="description">FullScreen trigger function. Additional: has 3s delay between triggers when continues pressing.</p>
+        <p><span class="number">2.</span> [alt + Enter] => <span style="color: #2196F3;">triggerFullscreen()</span> </p>
+        <p class="description">FullScreen trigger function. Additional: has 3s delay between triggers when continues
+          pressing.</p>
       </div>
       <div class="singleShotCode">
-          <p><span class="number">3.</span> [alt + C] => <span style="color: orange;">closeWindowFunc()</span> </p>
-          <p class="description">Will just close this tab.</p>
-          <p style="color:red;">Disabled</p>
+        <p><span class="number">3.</span> [alt + C] => <span style="color: #2196F3;">closeWindowFunc()</span> </p>
+        <p class="description">Will just close this tab.</p>
+        <p style="color:red;">Disabled</p>
       </div>
       <hr>
       <h4>Modals</h4>
       <button onclick="showRootModal(event);">Show Root Modal</button>
     </div>
   </div>
-  
+
   <div class="footerPart" style="height: 1000px;">
     YEAA MIKI MAKE STUFF GOOD
   </div>
-  
+
 </div>

@@ -44,6 +44,10 @@ function loadSection(fileName) {
   }
 }
 
+function loadPage(fileName){
+  document.getElementById("app").innerHTML = loadSection(fileName);
+}
+
 function finishLoading() {
   document.body.classList.add('loaded');
 }
@@ -52,36 +56,27 @@ function startLoading() {
   document.body.classList.remove('loaded');
 }
 
-
 function show404page() {
-  loadScript("/pages/error_404.js");
+  loadScript("/assets/scripts/ao_modal.js", function () { loadScript("/pages/error_404.js") } );
 }
 
 function findCurrentRoute() {
-  var pageFound = false;
   for (let i = 0; i < routes.length; i++) {
     if (currentLocation === routes[i].route) {
       routes[i].page();
-      pageFound = true;
+      return true;
     }
-
     if (routes[i].routeAliases !== undefined) {
       for (let j = 0; j < routes[i].routeAliases.length; j++) {
         if (currentLocation === routes[i].routeAliases[j]) {
           routes[i].page();
-          pageFound = true;
+          return true;
         }
       }
     }
-
   }
-  if (!pageFound) {
-    show404page();
-  }
-
-  return pageFound;
+  return false;
 }
-
 
 
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -91,14 +86,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
     window.location.replace(true_origin);
   }
 
-  loadScript("/assets/scripts/ao_modal.js", function() { /* testModalFunc(); */ });
-  loadScript("/assets/scripts/ao_router.js", function() { findCurrentRoute(); });
+  loadScript("/assets/scripts/ao_router.js", function() { findCurrentRoute() ? finishLoading() : show404page() });
 
   loadStyle("/assets/styles/app.css");
   loadStyle("/assets/styles/modal.css");
   
 });
-
 
 
 //▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
