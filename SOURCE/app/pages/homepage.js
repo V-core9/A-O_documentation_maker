@@ -1,5 +1,3 @@
-
-
 (() => {/// Skripta za top deo da sakriva stvari
   var isInViewport = function (elem, distY, offY = 0) {
     var distance = elem.getBoundingClientRect()
