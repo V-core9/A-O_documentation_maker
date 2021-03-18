@@ -5,13 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install_ao": "bash ao_builder/install.sh",
-    "build_ao": "bash ao_builder/build.sh",
-    "build_ao_dev": "bash ao_builder/build.sh dev",
-    "dev_ao": "start node front.srv.js && nodemon --exec npm run build_ao_dev --ignore ./PUBLIC",
-    "tunnel_ao": "npm run ao && start lt --port 8080",
-    "git_docs": "npm run build_ao && rm -r ./docs && cp -ar ./PUBLIC ./docs",
-    "ao": "npm run build_ao && start node front.srv.js"
+    "install": "start bash -c ' git clone https://github.com/MyUserNameIsMyUserName/A-O_builder-express.git ; cd A-O_builder-express ; mv SOURCE/ SOURCE_DEMO/ ; npm run _install ; mkdir SOURCE; '",
+    "build": "bash build.sh"
   },
   "repository": {
     "type": "git",
@@ -23,15 +18,5 @@
   "bugs": {
     "url": "https://github.com/MyUserNameIsMyUserName/A-O_documentation_maker/issues"
   },
-  "homepage": "https://github.com/MyUserNameIsMyUserName/A-O_documentation_maker#readme",
-  "dependencies": {
-    "@babel/cli": "^7.12.10",
-    "@babel/core": "^7.12.10",
-    "babel-loader": "^8.2.2",
-    "babel-plugin-remove-comments": "^2.0.0",
-    "compression": "^1.7.4",
-    "express": "^4.17.1",
-    "livereload": "^0.9.1",
-    "webpack": "^5.16.0"
-  }
+  "homepage": "https://github.com/MyUserNameIsMyUserName/A-O_documentation_maker#readme"
 }
