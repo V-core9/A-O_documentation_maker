@@ -5,9 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "_install": " bash -c ' git clone https://github.com/MyUserNameIsMyUserName/A-O_builder-express.git  ;  bash \"  echo | bash A-O_builder-express/ao_builder/install.sh \";  cd A-O_builder-express  ; npm install  ; cd .. ; cp -r A-O_builder-express/node_modules/* node_modules/* ; '",
-    "installl": "start bash -c ' git clone https://github.com/MyUserNameIsMyUserName/A-O_builder-express.git  ; cd A-O_builder-express  ; mv SOURCE/ SOURCE_DEMO/  ; npm run _install  ; mkdir SOURCE ; '",
-    "build": "bash build.sh"
+    "_install": " bash -c \" git clone https://github.com/MyUserNameIsMyUserName/A-O_builder-express.git  && echo |bash A-O_builder-express/ao_builder/install.sh && cd  A-O_builder-express && npm install && cd .. && echo $PWD && cp -r A-O_builder-express/node_modules/ ./  && cp  A-O_builder-express/ao_express.js ./ \"",
+    "_uninstall": "bash -c \" rm -r  A-O_builder-express -f && rm -r node_modules -f && rm -r PUBLIC -f && rm ao_express.js \"",
+    "_build": "echo | echo |bash A-O_builder-express/ao_builder/build.sh ",
+    "_build_and_run": "npm run b_ && start node ao_express.js",
+    "in_": "npm run _install",
+    "uni_": "npm run _uninstall",
+    "b_": "npm run _build",
+    "br_": "npm run _build_and_run"
   },
   "repository": {
     "type": "git",
