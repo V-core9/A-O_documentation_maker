@@ -5,13 +5,19 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install_ao": "bash ao_builder/install.sh",
-    "build_ao": "bash ao_builder/build.sh",
-    "build_ao_dev": "bash ao_builder/build.sh dev",
-    "dev_ao": "start node front.srv.js && nodemon --exec npm run build_ao_dev --ignore ./PUBLIC",
-    "tunnel_ao": "npm run ao && start lt --port 8080",
-    "git_docs": "npm run build_ao && rm -r ./docs && cp -ar ./PUBLIC ./docs",
-    "ao": "npm run build_ao && start node front.srv.js"
+    "_install": " npm install copy-dependencies -g && bash -c \" git clone https://github.com/MyUserNameIsMyUserName/A-O_builder-express.git  && copy-dependencies ./A-O_builder-express/ ./ && echo |bash A-O_builder-express/ao_builder/install.sh \"",
+    "_uninstall": "bash -c \" rm -r  A-O_builder-express -f && rm -r node_modules -f && rm -r PUBLIC -f \"",
+    "_build": "bash A-O_builder-express/ao_builder/build.sh ",
+    "_build_dev": "bash A-O_builder-express/ao_builder/build.sh dev",
+    "_build_and_serve": "npm run _build && npm run _serve ",
+    "_serve": "start node ao_docs_maker.js",
+    "in_": "npm run _install",
+    "uni_": "npm run _uninstall",
+    "b_": "npm run _build",
+    "bs_": "npm run _build_and_serve",
+    "bsd_": "npm run _serve && nodemon --exec npm run _build_dev --ignore ./PUBLIC",
+    "_local_tunnel": "npm run ao && start lt --port 8888",
+    "lt_": "npm run _local_tunnel"
   },
   "repository": {
     "type": "git",
@@ -32,6 +38,9 @@
     "compression": "^1.7.4",
     "express": "^4.17.1",
     "livereload": "^0.9.1",
+    "meow": "^9.0.0",
+    "sweetalert2": "^10.15.6",
+    "tslib": "^2.1.0",
     "webpack": "^5.16.0"
   }
 }
