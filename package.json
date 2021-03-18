@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "start bash -c ' git clone https://github.com/MyUserNameIsMyUserName/A-O_builder-express.git ; cd A-O_builder-express ; mv SOURCE/ SOURCE_DEMO/ ; npm run _install ; mkdir SOURCE; '",
+    "_install": " bash -c ' git clone https://github.com/MyUserNameIsMyUserName/A-O_builder-express.git  ;  bash \"  echo | bash A-O_builder-express/ao_builder/install.sh \";  cd A-O_builder-express  ; npm install  ; cd .. ; cp -r A-O_builder-express/node_modules/* node_modules/* ; '",
+    "installl": "start bash -c ' git clone https://github.com/MyUserNameIsMyUserName/A-O_builder-express.git  ; cd A-O_builder-express  ; mv SOURCE/ SOURCE_DEMO/  ; npm run _install  ; mkdir SOURCE ; '",
     "build": "bash build.sh"
   },
   "repository": {
@@ -18,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/MyUserNameIsMyUserName/A-O_documentation_maker/issues"
   },
-  "homepage": "https://github.com/MyUserNameIsMyUserName/A-O_documentation_maker#readme"
+  "homepage": "https://github.com/MyUserNameIsMyUserName/A-O_documentation_maker#readme",
+  "dependencies": {
+    "sweetalert2": "^10.15.6"
+  }
 }
