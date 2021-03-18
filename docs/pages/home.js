@@ -1,0 +1,1 @@
+function createHomepage(){landingHomeElement(),finishLoading()}function landingHomeElement(){const a=document.createElement("div"),b=document.createTextNode("Hi there and greetings! Welcome to the landing page of A^O_DOCS");a.appendChild(b);document.getElementById("div1");document.getElementById("app").appendChild(a)}createHomepage();
