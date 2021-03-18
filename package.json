@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "_install": " bash -c \" git clone https://github.com/MyUserNameIsMyUserName/A-O_builder-express.git  && echo |bash A-O_builder-express/ao_builder/install.sh && cd  A-O_builder-express && npm install && cd .. && echo $PWD && cp -r A-O_builder-express/node_modules/ ./  && cp  A-O_builder-express/ao_express.js ./ \"",
+    "_install": " npm install copy-dependencies -g && bash -c \" git clone https://github.com/MyUserNameIsMyUserName/A-O_builder-express.git  && copy-dependencies ./A-O_builder-express/ ./ && rm package-dep.json && cp  A-O_builder-express/ao_express.js ./ \"",
     "_uninstall": "bash -c \" rm -r  A-O_builder-express -f && rm -r node_modules -f && rm -r PUBLIC -f && rm ao_express.js \"",
     "_build": "echo | echo |bash A-O_builder-express/ao_builder/build.sh ",
     "_build_and_run": "npm run b_ && start node ao_express.js",
@@ -26,6 +26,8 @@
   },
   "homepage": "https://github.com/MyUserNameIsMyUserName/A-O_documentation_maker#readme",
   "dependencies": {
-    "sweetalert2": "^10.15.6"
+    "meow": "^9.0.0",
+    "sweetalert2": "^10.15.6",
+    "tslib": "^2.1.0"
   }
 }
