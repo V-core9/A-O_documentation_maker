@@ -1,3 +1,3 @@
 # A-O_documentation_maker
-
+# | [![CodeQL](https://github.com/MyUserNameIsMyUserName/A-O_documentation_maker/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/MyUserNameIsMyUserName/A-O_documentation_maker/actions/workflows/codeql-analysis.yml) | [![Codacy Security Scan](https://github.com/MyUserNameIsMyUserName/A-O_documentation_maker/actions/workflows/codacy-analysis.yml/badge.svg)](https://github.com/MyUserNameIsMyUserName/A-O_documentation_maker/actions/workflows/codacy-analysis.yml) | [![OSSAR](https://github.com/MyUserNameIsMyUserName/A-O_documentation_maker/actions/workflows/ossar-analysis.yml/badge.svg)](https://github.com/MyUserNameIsMyUserName/A-O_documentation_maker/actions/workflows/ossar-analysis.yml) 
 Just starting point....will see yet what will become out of it.
