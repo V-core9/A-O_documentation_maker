@@ -9,7 +9,6 @@ const PORT = 8080;
 const STATIC = path.resolve(__dirname, "PUBLIC");
 const INDEX = path.resolve(STATIC, "index.html");
 
-
 const app = express();
 app.use(bodyParser.json());
 
@@ -20,11 +19,10 @@ app.use(express.static(STATIC));
 
 // All GET request handled by INDEX file
 app.get("*", function (req, res) {
-    req.headers["Bypass-Tunnel-Reminder"] = "YEAdoIT";
-    res.sendFile(INDEX);
+  res.sendFile(INDEX);
 });
 
 // Start server
 app.listen(PORT, function () {
-    console.log("Server up and running on http://localhost:" + PORT + "/");
+  console.log("Server up and running on http://localhost:" + PORT + "/");
 });

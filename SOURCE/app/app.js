@@ -7,7 +7,7 @@
 //║       than few days, better have something prepared.          ║ √ 23.01.2021. ║
 //╚═══════════════════════════════════════════════════════════════╩═══════════════╝
 
-const true_origin = "https://white-rattlesnake-22.loca.lt"
+const true_origin = "http://localhost:8080"
   // Some variables setup
 var ao_loader = document.getElementById("loader");
 var pageScripts = document.getElementById("app_scripts_container");
