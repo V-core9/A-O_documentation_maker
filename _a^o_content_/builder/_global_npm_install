@@ -1,0 +1,13 @@
+copy-dependencies
+dotenv-cli
+node-sass
+nodemon
+@babel/core
+@babel/cli
+babel-minify
+localtunnel
+image-2-min
+imagemin-cli
+imagemin-pngquant
+pngquant-bin
+gifsicle

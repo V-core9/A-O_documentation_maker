@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "_install": " npm install copy-dependencies -g && bash -c \" git clone https://github.com/MyUserNameIsMyUserName/A-O_builder-express.git  && copy-dependencies ./A-O_builder-express/ ./ && echo |bash A-O_builder-express/ao_builder/install.sh \"",
-    "_uninstall": "bash -c \" rm -r  A-O_builder-express -f && rm -r node_modules -f && rm -r PUBLIC -f \"",
-    "_build": "bash A-O_builder-express/ao_builder/build.sh ",
-    "_build_dev": "bash A-O_builder-express/ao_builder/build.sh dev",
+    "_install": " bash -c \"./_a^o_content_/builder/_v.2_istall.sh \" && npm install ",
+    "_uninstall": "bash -c \" rm -r  _a^o_content_ -f && rm -r node_modules -f && rm -r PUBLIC -f \"",
+    "_build": "bash \"./_a^o_content_/builder/build.sh\" ",
+    "_build_dev": "bash \"./_a^o_content_/builder/build.sh\" dev",
     "_build_and_serve": "npm run _build && npm run _serve ",
-    "_serve": "start node ao_docs_maker.js",
+    "_serve": "start node SPA.server.js",
     "in_": "npm run _install",
     "uni_": "npm run _uninstall",
     "b_": "npm run _build",
@@ -36,11 +36,18 @@
     "babel-loader": "^8.2.2",
     "babel-plugin-remove-comments": "^2.0.0",
     "compression": "^1.7.4",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "livereload": "^0.9.1",
     "meow": "^9.0.0",
     "sweetalert2": "^10.15.6",
     "tslib": "^2.1.0",
-    "webpack": "^5.16.0"
+    "autoprefixer": "^6.5.4",
+    "browserslist": "^4.16.3",
+    "selenium-server": "^3.141.59",
+    "webpack": "^5.16.0",
+    "chromedriver": "^89.0.0",
+    "geckodriver": "^1.22.3",
+    "nightwatch": "^1.6.1"
   }
 }
