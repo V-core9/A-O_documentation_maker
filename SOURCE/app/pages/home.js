@@ -1,10 +1,5 @@
-function createHomepage(){
-    landingHomeElement();
 
-    finishLoading();
-}
-
-function landingHomeElement(){
+function page(){
     // create a new div element
   const newDiv = document.createElement("div");
 
@@ -18,6 +13,8 @@ function landingHomeElement(){
   const currentDiv = document.getElementById("div1");
 
   document.getElementById('app').appendChild(newDiv);
+
+  finishLoading();
 }
 
-createHomepage();
+page();

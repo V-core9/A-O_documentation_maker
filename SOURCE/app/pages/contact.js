@@ -1,10 +1,6 @@
-function createContactPage(){
-    landingContactElement();
 
-    finishLoading();
-}
 
-function landingContactElement(){
+function page(){
     // create a new div element
   const newDiv = document.createElement("div");
   newDiv.id = "landing_main";
@@ -19,6 +15,8 @@ function landingContactElement(){
   const currentDiv = document.getElementById("div1");
 
   document.getElementById('app').appendChild(newDiv);
+
+  finishLoading();
 }
 
-createContactPage();
+page();
